@@ -1,11 +1,7 @@
-package com.husaria.gui.toolkit;
+package com.husaria.gui.toolkit.button;
+import com.husaria.gui.toolkit.HButton;
 
-import javax.swing.*;
-
-/**
- * Created by Owner on 8/18/2018.
- */
-public abstract class HButton extends JButton implements IComponent {
+public class SearchButton extends HButton{
 
     //==================================================================================================================
     // Instance Variable(s)
@@ -23,13 +19,10 @@ public abstract class HButton extends JButton implements IComponent {
     // Public Functions(s)
     //==================================================================================================================
 
-
     //==================================================================================================================
     // Private Functions(s)
     //==================================================================================================================
 
 
-
 }//****************************************************END OF FILE*****************************************************/
-
 

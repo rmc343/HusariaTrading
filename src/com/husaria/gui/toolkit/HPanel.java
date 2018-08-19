@@ -1,11 +1,9 @@
 package com.husaria.gui.toolkit;
 
 import javax.swing.*;
+import java.awt.*;
 
-/**
- * Created by Owner on 8/18/2018.
- */
-public abstract class HButton extends JButton implements IComponent {
+public abstract class HPanel extends JPanel implements IComponent {
 
     //==================================================================================================================
     // Instance Variable(s)
@@ -15,6 +13,9 @@ public abstract class HButton extends JButton implements IComponent {
     // Constructor(s)
     //==================================================================================================================
 
+    public HPanel() {
+    }
+
     //==================================================================================================================
     // Getter(s)& Setter(s)
     //==================================================================================================================
@@ -23,10 +24,29 @@ public abstract class HButton extends JButton implements IComponent {
     // Public Functions(s)
     //==================================================================================================================
 
+    public void addHLabel(String text, HLabel label){
+
+        label = new HLabel(text);
+        label.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(label);
+
+    }
+
+    public void addHButton(String text, HButton button){
+
+        button = new HButton();
+        button.setText(text);
+        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(button);
+
+    }
 
     //==================================================================================================================
     // Private Functions(s)
     //==================================================================================================================
+
+
+
 
 
 

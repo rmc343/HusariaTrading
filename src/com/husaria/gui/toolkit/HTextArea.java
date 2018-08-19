@@ -5,7 +5,7 @@ import javax.swing.*;
 /**
  * Created by Owner on 8/18/2018.
  */
-public class HTextArea extends JTextArea {
+public abstract class HTextArea extends JTextArea implements IComponent {
 
 
     //==================================================================================================================

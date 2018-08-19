@@ -2,6 +2,7 @@ package com.husaria.gui.toolkit.Iex.panel.stock;
 
 import com.husaria.application.tradable.position.Company;
 import com.husaria.gui.toolkit.HLabel;
+import com.husaria.gui.toolkit.HPanel;
 import com.husaria.gui.toolkit.HTextArea;
 import com.husaria.gui.toolkit.Iex.IexPanel;
 
@@ -11,7 +12,7 @@ import java.awt.*;
 /**
  * Created by Owner on 8/18/2018.
  */
-public class CompanyPanel extends IexPanel {
+public class CompanyPanel extends HPanel {
 
     public static final String COMPANY_NAME = "Company Name: ";
     public static final String EXCHANGE = "Exchange: ";
@@ -29,33 +30,23 @@ public class CompanyPanel extends IexPanel {
     private HLabel companyNameLabel, exChangeLabel,industryLabel, websiteLabel, ceoLabel, issueTypeLabel, sectorLabel;
     private HTextArea descriptionTextArea;
 
+    private Company company;
+
 
     //==================================================================================================================
     // Constructor(s)
     //==================================================================================================================
 
+    public CompanyPanel()
+    {
+    }
+
     public CompanyPanel(Company company) {
 
 
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        companyNameLabel = new HLabel(COMPANY_NAME + company.getCompanyName());
-        exChangeLabel = new HLabel(EXCHANGE + company.getExchange());
-        industryLabel = new HLabel(INDUSTRY + company.getIndustry());
-        websiteLabel = new HLabel(WEBSITE + company.getWebsite());
-        ceoLabel = new HLabel(CEO +company.getCeo());
-        issueTypeLabel = new HLabel(ISSUE_TYPE + company.getIssueType());
-        sectorLabel = new HLabel(SECTOR + company.getSector());
+        generateData();
 
-        descriptionTextArea = new HTextArea(company.getDescription());
-
-        add(companyNameLabel, BorderLayout.CENTER);
-        add(exChangeLabel,BorderLayout.CENTER);
-        add(industryLabel,BorderLayout.CENTER);
-        add(websiteLabel,BorderLayout.CENTER);
-        add(ceoLabel,BorderLayout.CENTER);
-        add(issueTypeLabel,BorderLayout.CENTER);
-        add(sectorLabel,BorderLayout.CENTER);
-        add(descriptionTextArea,BorderLayout.CENTER);
+        //descriptionTextArea = new HTextArea(company.getDescription());
 
     }
 
@@ -128,24 +119,36 @@ public class CompanyPanel extends IexPanel {
         this.descriptionTextArea = descriptionTextArea;
     }
 
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 
     //==================================================================================================================
     // Public Functions(s)
     //==================================================================================================================
 
+    public void generateData()
+    {
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        addHLabel(COMPANY_NAME + company.getCompanyName(),companyNameLabel);
+        addHLabel(  EXCHANGE + company.getExchange(), exChangeLabel);
+        addHLabel(  INDUSTRY + company.getIndustry(), industryLabel);
+        addHLabel(  WEBSITE + company.getWebsite(), websiteLabel);
+        addHLabel(  CEO +company.getCeo(),ceoLabel);
+        addHLabel(  ISSUE_TYPE + company.getIssueType(), issueTypeLabel);
+        addHLabel(  SECTOR + company.getSector(),sectorLabel);
+
+        //descriptionTextArea = new HTextArea(company.getDescription());
+    }
 
     //==================================================================================================================
     // Private Functions(s)
     //==================================================================================================================
 
-    private void addHLabel(String text, HLabel label){
-
-        label = new HLabel(text);
-        label.setAlignmentX(Component.CENTER_ALIGNMENT);
-        add(label);
-
-
-    }
 
 
 }//****************************************************END OF FILE*****************************************************/
