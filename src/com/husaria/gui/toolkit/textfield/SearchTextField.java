@@ -1,51 +1,41 @@
-package com.husaria.gui.toolkit;
+package com.husaria.gui.toolkit.textfield;
 
-import javax.swing.*;
+import com.husaria.gui.toolkit.HTextField;
 
-public abstract class HComponent implements ICreatable {
+/**
+ * Created by Owner on 8/19/2018.
+ */
+public class SearchTextField extends HTextField{
 
     //==================================================================================================================
     // Instance Variable(s)
     //==================================================================================================================
 
-    private JComponent component;
-
     //==================================================================================================================
     // Constructor(s)
     //==================================================================================================================
 
-    public HComponent(JComponent component) {
-        this.component = component;
+    public SearchTextField() {
+        super();
     }
+
 
     //==================================================================================================================
     // Getter(s)& Setter(s)
     //==================================================================================================================
-
-    public JComponent getComponent() {
-        return component;
-    }
-
-    public void setComponent(JComponent component) {
-        this.component = component;
-    }
 
 
     //==================================================================================================================
     // Public Functions(s)
     //==================================================================================================================
 
-    public void setAlignment(boolean xAxis, float alignment)
+    public String parseSymbol()
     {
-        if(xAxis) {
+        String symbol = "";
 
-            component.setAlignmentX(alignment);
+        symbol = getText();
 
-        }else {
-
-            component.setAlignmentY(alignment);
-
-        }
+        return symbol;
 
     }
 

@@ -2,32 +2,45 @@ package com.husaria.gui.toolkit;
 
 import javax.swing.*;
 
-public abstract class HComponent implements ICreatable {
+/**
+ * Created by Owner on 8/19/2018.
+ */
+public abstract class HTextField extends HComponent {
 
     //==================================================================================================================
     // Instance Variable(s)
     //==================================================================================================================
 
-    private JComponent component;
-
     //==================================================================================================================
     // Constructor(s)
     //==================================================================================================================
 
-    public HComponent(JComponent component) {
-        this.component = component;
+    public HTextField() {
+        super(new JTextField());
+        generateData();
     }
 
     //==================================================================================================================
     // Getter(s)& Setter(s)
     //==================================================================================================================
 
-    public JComponent getComponent() {
-        return component;
+
+    public JTextField getComponent()
+    {
+
+        return  (JTextField)super.getComponent();
+
     }
 
-    public void setComponent(JComponent component) {
-        this.component = component;
+    public void setComponent(JTextField textField)
+    {
+
+        super.setComponent(textField);
+
+    }
+
+    public String getText(){
+        return getComponent().getText();
     }
 
 
@@ -35,17 +48,15 @@ public abstract class HComponent implements ICreatable {
     // Public Functions(s)
     //==================================================================================================================
 
-    public void setAlignment(boolean xAxis, float alignment)
-    {
-        if(xAxis) {
 
-            component.setAlignmentX(alignment);
+    @Override
+    public void generateData() {
 
-        }else {
+    }
 
-            component.setAlignmentY(alignment);
 
-        }
+    @Override
+    public void updateData() {
 
     }
 

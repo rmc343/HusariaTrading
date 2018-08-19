@@ -30,19 +30,11 @@ public class CompanyPanel extends HPanel {
     private HLabel companyNameLabel, exChangeLabel,industryLabel, websiteLabel, ceoLabel, issueTypeLabel, sectorLabel;
     private HTextArea descriptionTextArea;
 
-    private Company company;
-
-
     //==================================================================================================================
     // Constructor(s)
     //==================================================================================================================
 
-    public CompanyPanel()
-    {
-    }
-
-    public CompanyPanel(Company company) {
-
+    public CompanyPanel() {
 
         generateData();
 
@@ -103,7 +95,7 @@ public class CompanyPanel extends HPanel {
         this.issueTypeLabel = issueTypeLabel;
     }
 
-    public JLabel getSectorLabel() {
+    public HLabel getSectorLabel() {
         return sectorLabel;
     }
 
@@ -119,30 +111,43 @@ public class CompanyPanel extends HPanel {
         this.descriptionTextArea = descriptionTextArea;
     }
 
-    public Company getCompany() {
-        return company;
-    }
-
-    public void setCompany(Company company) {
-        this.company = company;
-    }
 
     //==================================================================================================================
     // Public Functions(s)
     //==================================================================================================================
 
+    public void setAllLabelText(String companyName, String exchange, String industry, String website, String ceo, String issueType, String sector)
+    {
+
+        companyNameLabel.setText(COMPANY_NAME + companyName);
+        exChangeLabel.setText(EXCHANGE + exchange);
+        industryLabel.setText(INDUSTRY + industry);
+        websiteLabel.setText(WEBSITE + website);
+        ceoLabel.setText(CEO + ceo);
+        issueTypeLabel.setText(ISSUE_TYPE + issueType);
+        sectorLabel.setText(SECTOR + sector);
+
+    }
+
     public void generateData()
     {
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        addHLabel(COMPANY_NAME + company.getCompanyName(),companyNameLabel);
-        addHLabel(  EXCHANGE + company.getExchange(), exChangeLabel);
-        addHLabel(  INDUSTRY + company.getIndustry(), industryLabel);
-        addHLabel(  WEBSITE + company.getWebsite(), websiteLabel);
-        addHLabel(  CEO +company.getCeo(),ceoLabel);
-        addHLabel(  ISSUE_TYPE + company.getIssueType(), issueTypeLabel);
-        addHLabel(  SECTOR + company.getSector(),sectorLabel);
+
+        getComponent().setLayout(new BoxLayout(getComponent(), BoxLayout.Y_AXIS));
+        companyNameLabel = addHLabel(COMPANY_NAME);
+        exChangeLabel = addHLabel(EXCHANGE);
+        industryLabel = addHLabel(INDUSTRY);
+        websiteLabel = addHLabel(WEBSITE);
+        ceoLabel = addHLabel(CEO);
+        issueTypeLabel = addHLabel(ISSUE_TYPE);
+        sectorLabel = addHLabel(SECTOR);
 
         //descriptionTextArea = new HTextArea(company.getDescription());
+    }
+
+
+    @Override
+    public void updateData() {
+
     }
 
     //==================================================================================================================

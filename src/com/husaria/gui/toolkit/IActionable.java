@@ -1,6 +1,9 @@
 package com.husaria.gui.toolkit;
 
-public interface ICreatable {
+/**
+ * Created by Owner on 8/19/2018.
+ */
+public interface IActionable {
 
 
     //==================================================================================================================
@@ -8,11 +11,9 @@ public interface ICreatable {
     //==================================================================================================================
 
 
-    void generateData();
-
-
-    void updateData();
+    void generateActions();
 
 
 }//****************************************************END OF FILE*****************************************************/
+
 

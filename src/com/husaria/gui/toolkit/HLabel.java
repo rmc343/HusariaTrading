@@ -12,17 +12,13 @@ public class HLabel extends HComponent{
     //==================================================================================================================
     private String text;
 
-    private JLabel label;
-
     //==================================================================================================================
     // Constructor(s)
     //==================================================================================================================
 
-    public HLabel() {
-    }
-
     public HLabel(String text) {
 
+        super(new JLabel());
         this.text = text;
         generateData();
 
@@ -33,14 +29,44 @@ public class HLabel extends HComponent{
     // Getter(s)& Setter(s)
     //==================================================================================================================
 
+    public JLabel getComponent()
+    {
+
+        return  (JLabel)super.getComponent();
+
+    }
+
+    public void setComponent(JLabel label)
+    {
+
+        super.setComponent(label);
+
+    }
+
+
+    public String getText() {
+        return getComponent().getText();
+    }
+
+    public void setText(String text) {
+        getComponent().setText(text);
+    }
+
     //==================================================================================================================
     // Public Functions(s)
     //==================================================================================================================
 
+
+
     @Override
     public void generateData() {
 
-        label = new JLabel(text);
+        setComponent(new JLabel(text));
+
+    }
+
+    @Override
+    public void updateData() {
 
     }
 

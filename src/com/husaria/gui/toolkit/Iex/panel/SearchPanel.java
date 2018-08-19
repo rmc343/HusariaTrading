@@ -1,33 +1,57 @@
-package com.husaria.gui.toolkit;
+package com.husaria.gui.toolkit.Iex.panel;
+
+import com.husaria.application.tradable.position.Stock;
+import com.husaria.gui.toolkit.HLabel;
+import com.husaria.gui.toolkit.HPanel;
+import com.husaria.gui.toolkit.button.SearchButton;
+import com.husaria.gui.toolkit.textfield.SearchTextField;
 
 import javax.swing.*;
 
-public abstract class HComponent implements ICreatable {
+/**
+ * Created by Owner on 8/19/2018.
+ */
+public class SearchPanel extends HPanel{
 
     //==================================================================================================================
     // Instance Variable(s)
     //==================================================================================================================
 
-    private JComponent component;
+    private SearchButton searchButton;
+    private SearchTextField searchTextField;
+
 
     //==================================================================================================================
     // Constructor(s)
     //==================================================================================================================
 
-    public HComponent(JComponent component) {
-        this.component = component;
+    public SearchPanel() {
+
+        searchTextField = new SearchTextField();
+        searchButton = new SearchButton();
+        generateData();
+
     }
+
 
     //==================================================================================================================
     // Getter(s)& Setter(s)
     //==================================================================================================================
 
-    public JComponent getComponent() {
-        return component;
+    public SearchTextField getSearchTextField() {
+        return searchTextField;
     }
 
-    public void setComponent(JComponent component) {
-        this.component = component;
+    public void setSearchTextField(SearchTextField searchTextField) {
+        this.searchTextField = searchTextField;
+    }
+
+    public SearchButton getSearchButton() {
+        return searchButton;
+    }
+
+    public void setSearchButton(SearchButton searchButton) {
+        this.searchButton = searchButton;
     }
 
 
@@ -35,17 +59,18 @@ public abstract class HComponent implements ICreatable {
     // Public Functions(s)
     //==================================================================================================================
 
-    public void setAlignment(boolean xAxis, float alignment)
-    {
-        if(xAxis) {
+    @Override
+    public void generateData() {
 
-            component.setAlignmentX(alignment);
+        getComponent().setLayout(new BoxLayout(getComponent(), BoxLayout.Y_AXIS));
+        searchTextField =  (SearchTextField) addHTextField(searchTextField);
+        searchButton = (SearchButton) addHButton(SearchButton.SEARCH, searchButton);
 
-        }else {
+    }
 
-            component.setAlignmentY(alignment);
 
-        }
+    @Override
+    public void updateData() {
 
     }
 
@@ -58,5 +83,4 @@ public abstract class HComponent implements ICreatable {
 
 
 }//****************************************************END OF FILE*****************************************************/
-
 

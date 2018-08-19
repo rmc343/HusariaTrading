@@ -12,8 +12,7 @@ public class HTextArea extends HComponent  {
     // Instance Variable(s)
     //==================================================================================================================
 
-   private JTextArea textArea;
-   private String text;
+    private String text;
 
     //==================================================================================================================
     // Constructor(s)
@@ -21,6 +20,7 @@ public class HTextArea extends HComponent  {
 
     public HTextArea(String text) {
 
+        super(new JTextArea());
         this.text = text;
         generateData();
 
@@ -37,7 +37,12 @@ public class HTextArea extends HComponent  {
 
     public void generateData()
     {
-        textArea = new JTextArea(text);
+        setComponent(new JTextArea(text));
+    }
+
+    @Override
+    public void updateData() {
+
     }
 
     //==================================================================================================================

@@ -16,6 +16,10 @@ public abstract class HPanel extends HComponent {
     //==================================================================================================================
 
     public HPanel() {
+
+        super(new JPanel());
+
+
     }
 
 
@@ -24,23 +28,59 @@ public abstract class HPanel extends HComponent {
     // Getter(s)& Setter(s)
     //==================================================================================================================
 
+    public JPanel getComponent()
+    {
+
+        return  (JPanel)super.getComponent();
+
+    }
+
+    public void setComponent(JPanel panel)
+    {
+
+        super.setComponent(panel);
+
+    }
+
     //==================================================================================================================
     // Public Functions(s)
     //==================================================================================================================
 
-    public void addHLabel(String text, HLabel label){
+    public HLabel addHLabel(String text){
 
-        label = new HLabel(text);
-        label.setAlignmentX(Component.CENTER_ALIGNMENT);
-        add(label);
+        HLabel label = new HLabel(text);
+        label.getComponent().setAlignmentX(Component.CENTER_ALIGNMENT);
+        getComponent().add(label.getComponent());
+
+        return label;
 
     }
 
-    public void addHButton(String text, HButton button){
+    public HButton addHButton(String text, HButton button){
 
         button.setText(text);
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        add(button);
+        button.getComponent().setAlignmentX(Component.CENTER_ALIGNMENT);
+        getComponent().add(button.getComponent());
+
+        return button;
+
+    }
+
+    public HTextField addHTextField(HTextField textField){
+
+        textField.getComponent().setAlignmentX(Component.CENTER_ALIGNMENT);
+        getComponent().add(textField.getComponent());
+
+        return textField;
+
+    }
+
+    public HPanel addPanel( HPanel panel){
+
+        panel.getComponent().setAlignmentX(Component.CENTER_ALIGNMENT);
+        getComponent().add(panel.getComponent());
+
+        return panel;
 
     }
 
