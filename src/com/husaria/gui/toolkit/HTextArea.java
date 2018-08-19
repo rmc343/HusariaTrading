@@ -5,19 +5,25 @@ import javax.swing.*;
 /**
  * Created by Owner on 8/18/2018.
  */
-public abstract class HTextArea extends JTextArea implements IComponent {
+public class HTextArea extends HComponent  {
 
 
     //==================================================================================================================
     // Instance Variable(s)
     //==================================================================================================================
 
+   private JTextArea textArea;
+   private String text;
+
     //==================================================================================================================
     // Constructor(s)
     //==================================================================================================================
 
     public HTextArea(String text) {
-        super(text);
+
+        this.text = text;
+        generateData();
+
     }
 
 
@@ -29,6 +35,10 @@ public abstract class HTextArea extends JTextArea implements IComponent {
     // Public Functions(s)
     //==================================================================================================================
 
+    public void generateData()
+    {
+        textArea = new JTextArea(text);
+    }
 
     //==================================================================================================================
     // Private Functions(s)

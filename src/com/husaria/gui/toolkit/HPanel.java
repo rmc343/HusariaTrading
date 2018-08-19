@@ -3,11 +3,13 @@ package com.husaria.gui.toolkit;
 import javax.swing.*;
 import java.awt.*;
 
-public abstract class HPanel extends JPanel implements IComponent {
+public abstract class HPanel extends HComponent {
 
     //==================================================================================================================
     // Instance Variable(s)
     //==================================================================================================================
+
+    private JPanel panel;
 
     //==================================================================================================================
     // Constructor(s)
@@ -15,6 +17,8 @@ public abstract class HPanel extends JPanel implements IComponent {
 
     public HPanel() {
     }
+
+
 
     //==================================================================================================================
     // Getter(s)& Setter(s)
@@ -34,7 +38,6 @@ public abstract class HPanel extends JPanel implements IComponent {
 
     public void addHButton(String text, HButton button){
 
-        button = new HButton();
         button.setText(text);
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
         add(button);
